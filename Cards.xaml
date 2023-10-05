@@ -1,0 +1,587 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+  
+
+    <Style x:Key="pathstyle" TargetType="Path">
+        <Setter Property="Stroke"  x:Name="x1">
+            <Setter.Value>
+                <!--<SolidColorBrush Color="white"/>-->
+               <LinearGradientBrush>
+                    <GradientStop  Color="Cyan" Offset="0.0"/>
+                    <GradientStop Color="Yellow" Offset="0.5"/>
+                    <GradientStop Color="Red" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+            
+        </Setter>
+        <Setter Property="StrokeThickness" Value="5"/>
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="Window.Loaded">
+                <BeginStoryboard>
+                <Storyboard >
+                        <ColorAnimationUsingKeyFrames  Storyboard.TargetProperty="(Stroke).(LinearGradientBrush.GradientStops)[0].(GradientStop.Color)"  RepeatBehavior="Forever">
+                        
+                        <EasingColorKeyFrame KeyTime="0:0:1" Value="Yellow"/>
+
+                        <EasingColorKeyFrame KeyTime="0:0:2" Value="Red"/>
+
+                        <EasingColorKeyFrame KeyTime="0:0:3" Value="Cyan"/>
+                    </ColorAnimationUsingKeyFrames>
+                        <ColorAnimationUsingKeyFrames  Storyboard.TargetProperty="(Stroke).(LinearGradientBrush.GradientStops)[1].(GradientStop.Color)"  RepeatBehavior="Forever">
+                           
+
+                            <EasingColorKeyFrame KeyTime="0:0:3" Value="Yellow"/>
+
+                            <EasingColorKeyFrame KeyTime="0:0:1" Value="Red"/>
+
+                            <EasingColorKeyFrame KeyTime="0:0:2" Value="Cyan"/>
+                        </ColorAnimationUsingKeyFrames>
+                        <ColorAnimationUsingKeyFrames  Storyboard.TargetProperty="(Stroke).(LinearGradientBrush.GradientStops)[2].(GradientStop.Color)"  RepeatBehavior="Forever">
+                            
+                            <EasingColorKeyFrame KeyTime="0:0:2" Value="Yellow"/>
+
+                            <EasingColorKeyFrame KeyTime="0:0:3" Value="Red"/>
+
+                            <EasingColorKeyFrame KeyTime="0:0:1" Value="Cyan"/>
+                        </ColorAnimationUsingKeyFrames>
+                        <ColorAnimation To="Red" Duration="0:0:2" RepeatBehavior="Forever" Storyboard.TargetProperty="(Stroke).(LinearGradientBrush.GradientStops)[0].(GradientStop.Color)" />
+
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+    <Style TargetType="Path">
+       
+    </Style>
+
+    <Style x:Key="linestyle" TargetType="Line">
+        <!--<Setter Property="Stroke" Value="#0fe2f5"/>-->
+        <Setter Property="StrokeThickness" Value="5"/>
+        <Setter Property="Stroke">
+            <Setter.Value>
+                <LinearGradientBrush>
+                    <GradientStop Color="Cyan" Offset="0.0"/>
+                    <GradientStop Color="Yellow" Offset="0.5"/>
+                    <GradientStop Color="Red" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="Window.Loaded">
+                <BeginStoryboard>
+                    <Storyboard >
+                        <ColorAnimationUsingKeyFrames  Storyboard.TargetProperty="(Stroke).(LinearGradientBrush.GradientStops)[0].(GradientStop.Color)" Duration="0:0:3" RepeatBehavior="Forever">
+
+                            <EasingColorKeyFrame KeyTime="0:0:1" Value="Yellow"/>
+
+                            <EasingColorKeyFrame KeyTime="0:0:2" Value="Red"/>
+
+                            <EasingColorKeyFrame KeyTime="0:0:3" Value="Cyan"/>
+                        </ColorAnimationUsingKeyFrames>
+                        <ColorAnimationUsingKeyFrames  Storyboard.TargetProperty="(Stroke).(LinearGradientBrush.GradientStops)[1].(GradientStop.Color)"  RepeatBehavior="Forever">
+
+
+                            <EasingColorKeyFrame KeyTime="0:0:3" Value="Yellow"/>
+
+                            <EasingColorKeyFrame KeyTime="0:0:1" Value="Red"/>
+
+                            <EasingColorKeyFrame KeyTime="0:0:2" Value="Cyan"/>
+                        </ColorAnimationUsingKeyFrames>
+                        <ColorAnimationUsingKeyFrames  Storyboard.TargetProperty="(Stroke).(LinearGradientBrush.GradientStops)[2].(GradientStop.Color)"  RepeatBehavior="Forever">
+
+                            <EasingColorKeyFrame KeyTime="0:0:2" Value="Yellow"/>
+
+                            <EasingColorKeyFrame KeyTime="0:0:3" Value="Red"/>
+
+                            <EasingColorKeyFrame KeyTime="0:0:1" Value="Cyan"/>
+                        </ColorAnimationUsingKeyFrames>
+                        <!--<ColorAnimation To="Red" Duration="0:0:2" RepeatBehavior="Forever" Storyboard.TargetProperty="(Stroke).(LinearGradientBrush.GradientStops)[0].(GradientStop.Color)" />-->
+
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="textstyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="White"  />
+
+    </Style>
+
+    <Style x:Key="symbol" TargetType="Path">
+        <Setter Property="Stroke" Value="AntiqueWhite"></Setter>
+        <Setter Property="StrokeThickness" Value="5"/>
+    </Style>
+
+    <ControlTemplate  x:Key="buttonCanvas">
+        <Viewbox>
+        <Canvas Height="800" Width="1000" >
+
+                <Path Style="{StaticResource pathstyle}">
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathGeometry.Figures>
+                                <PathFigure StartPoint="950,130" IsClosed="False">
+                                    <BezierSegment Point1="350,280" Point2="360,100" Point3="390,430"/>
+
+                                </PathFigure>
+                            </PathGeometry.Figures>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+
+              <Line Style="{StaticResource linestyle}"
+    X1="950" Y1="130"  
+    X2="950" Y2="280"  
+      
+     />
+                <Path Style="{StaticResource pathstyle}">
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathGeometry.Figures>
+                                <PathFigure StartPoint="930,300" IsClosed="False" >
+
+                                    <QuadraticBezierSegment Point1="220,400" Point2="450,470"/>
+                                </PathFigure>
+                            </PathGeometry.Figures>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+                <Path Style="{StaticResource pathstyle}">
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathGeometry.Figures>
+                                <PathFigure StartPoint="950,280" IsClosed="False"  >
+                                    <ArcSegment Point="930,300" Size="40, 40" SweepDirection="Clockwise"/>
+                                </PathFigure>
+                            </PathGeometry.Figures>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+                <!---club-->
+                <Path Style="{StaticResource pathstyle}">
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathGeometry.Figures>
+                                <PathFigure StartPoint="900,400" IsClosed="False">
+                                    <BezierSegment Point1="400,550" Point2="400,380" Point3="420,630"/>
+                                </PathFigure>
+                            </PathGeometry.Figures>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+              <Line Style="{StaticResource linestyle}"  
+                    X1="900" Y1="400"  
+    X2="900" Y2="520"  
+      
+     />
+                <Path Style="{StaticResource pathstyle}">
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathGeometry.Figures>
+                                <PathFigure StartPoint="900,520" IsClosed="False" >
+                                    <QuadraticBezierSegment Point1="320,600" Point2="450,638"/>
+                                </PathFigure>
+                            </PathGeometry.Figures>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+                <Path Style="{StaticResource pathstyle}">
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathGeometry.Figures>
+                                <PathFigure StartPoint="770,435" IsClosed="False"  >
+                                    <ArcSegment Point="650,460" Size="40, 40"/>
+                                </PathFigure>
+                            </PathGeometry.Figures>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+              <Path Style="{StaticResource pathstyle}">
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathGeometry.Figures>
+                                <PathFigure StartPoint="820,426" IsClosed="False"  >
+                                    <ArcSegment Point="600,465" Size="50, 50"/>
+                                </PathFigure>
+                            </PathGeometry.Figures>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+              <Path Style="{StaticResource pathstyle}">
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathGeometry.Figures>
+                                <PathFigure StartPoint="900,306" IsClosed="False"  >
+                                    <ArcSegment Point="800,317" Size="50, 50" SweepDirection="Clockwise"/>
+                                </PathFigure>
+                            </PathGeometry.Figures>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+              <Path Style="{StaticResource pathstyle}">
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathGeometry.Figures>
+                                <PathFigure StartPoint="935,297" IsClosed="False"  >
+                                    <ArcSegment Point="765,323" Size="80, 80" SweepDirection="Clockwise"/>
+                                </PathFigure>
+                            </PathGeometry.Figures>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+              <Path Style="{StaticResource pathstyle}">
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathGeometry.Figures>
+                                <PathFigure StartPoint="600,357" IsClosed="False"  >
+                                    <ArcSegment Point="425,400" Size="40, 40" SweepDirection="Clockwise"/>
+                                </PathFigure>
+                            </PathGeometry.Figures>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+              <Path Style="{StaticResource pathstyle}">
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathGeometry.Figures>
+                                <PathFigure StartPoint="560,360" IsClosed="False"  >
+                                    <ArcSegment Point="460,390" Size="35,35" SweepDirection="Clockwise"/>
+                                </PathFigure>
+                            </PathGeometry.Figures>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+              <Path Style="{StaticResource pathstyle}">
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathGeometry.Figures>
+                                <PathFigure StartPoint="420,620" IsClosed="False" >
+                                    <QuadraticBezierSegment Point1="420,700" Point2="670,680"/>
+                                </PathFigure>
+                            </PathGeometry.Figures>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+              <Line Style="{StaticResource linestyle}" 
+    X1="670" Y1="680"  
+    X2="680" Y2="600"  
+      
+     />
+
+              <Path Style="{StaticResource pathstyle}">
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathGeometry.Figures>
+                                <PathFigure StartPoint="655,565" IsClosed="False"  >
+                                    <ArcSegment Point="580,580" Size="40, 30" SweepDirection="Clockwise"/>
+                                </PathFigure>
+                            </PathGeometry.Figures>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+              <Path Style="{StaticResource pathstyle}">
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathGeometry.Figures>
+                                <PathFigure StartPoint="690,560" IsClosed="False"  >
+                                    <ArcSegment Point="550,587" Size="80, 90" SweepDirection="Clockwise"/>
+                                </PathFigure>
+                            </PathGeometry.Figures>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+
+              <Path Style="{StaticResource pathstyle}">
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathGeometry.Figures>
+                                <PathFigure StartPoint="860,535" IsClosed="False"  >
+                                    <ArcSegment Point="715,555" Size="80, 50" SweepDirection="Clockwise"/>
+                                </PathFigure>
+                            </PathGeometry.Figures>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+                <!---Cards-->
+
+                <Line Style="{StaticResource linestyle}"
+        X1="890" Y1="140"  
+    X2="905" Y2="75"  
+      
+     />
+              <Path Style="{StaticResource pathstyle}">
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathGeometry.Figures>
+                                <PathFigure StartPoint="904,86" IsClosed="False"  >
+                                    <ArcSegment Point="880, 50" Size="40, 40" />
+                                </PathFigure>
+                            </PathGeometry.Figures>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+                <Line Style="{StaticResource linestyle}"
+        X1="880" Y1="50"  
+    X2="720" Y2="40"  
+      
+     />
+              <Path Style="{StaticResource pathstyle}">
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathGeometry.Figures>
+                                <PathFigure StartPoint="720,40" IsClosed="False"  >
+                                    <ArcSegment Point="695, 65" Size="40, 40" />
+                                </PathFigure>
+                            </PathGeometry.Figures>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+                <Line Style="{StaticResource linestyle}"
+        X1="695" Y1="65"  
+    X2="680" Y2="180"  
+      
+     />
+                <Line Style="{StaticResource linestyle}"
+        X1="693" Y1="55"  
+    X2="600" Y2="50"  
+      
+     />
+              <Path Style="{StaticResource pathstyle}">
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathGeometry.Figures>
+                                <PathFigure StartPoint="600,50" IsClosed="False"  >
+                                    <ArcSegment Point="560,90" Size="40, 40" />
+                                </PathFigure>
+                            </PathGeometry.Figures>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+                <Line Style="{StaticResource linestyle}"
+        X1="560" Y1="90"  
+    X2="560" Y2="200"  
+      
+     />
+                <Line Style="{StaticResource linestyle}"
+        X1="560" Y1="62"  
+    X2="460" Y2="60"  
+      
+     />
+              <Path Style="{StaticResource pathstyle}">
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathGeometry.Figures>
+                                <PathFigure StartPoint="460,60" IsClosed="False"  >
+                                    <ArcSegment Point="430,90" Size="40, 40" />
+                                </PathFigure>
+                            </PathGeometry.Figures>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+                <Line Style="{StaticResource linestyle}"
+        X1="430" Y1="90"  
+    X2="435" Y2="210"       />
+
+            <!--Clubs-->
+                <Path Style="{StaticResource symbol}" >
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathGeometry.Figures>
+                                <PathFigure StartPoint="525,150" IsClosed="False"  >
+                                    <ArcSegment Point="500,200" Size="30, 30" />
+                                </PathFigure>
+                            </PathGeometry.Figures>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+                <Path Style="{StaticResource symbol}" >
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathGeometry.Figures>
+                                <PathFigure StartPoint="555,100" IsClosed="False"  >
+                                    <ArcSegment Point="525,150" Size="40, 40" />
+                                </PathFigure>
+                            </PathGeometry.Figures>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+                <!--diamond-->
+                <Path Style="{StaticResource symbol}" >
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathGeometry.Figures>
+                                <PathFigure StartPoint="645,150" IsClosed="False"  >
+                                    <ArcSegment Point="690,100" Size="100, 100" />
+                                </PathFigure>
+                            </PathGeometry.Figures>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+                <Path Style="{StaticResource symbol}" >
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathGeometry.Figures>
+                                <PathFigure StartPoint="645,148" IsClosed="False"  >
+                                    <ArcSegment Point="680,182" Size="100, 100" SweepDirection="Clockwise" />
+                                </PathFigure>
+                            </PathGeometry.Figures>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+                <!--spade-->
+                <Path Style="{StaticResource symbol}" >
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathGeometry.Figures>
+                                <PathFigure StartPoint="750,170" IsClosed="False">
+                                    <BezierSegment Point1="730,140" Point2="805,100" Point3="800,95"/>
+                                </PathFigure>
+                            </PathGeometry.Figures>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+                <Path Style="{StaticResource symbol}">
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathGeometry.Figures>
+                                <PathFigure StartPoint="842,155" IsClosed="False">
+                                    <BezierSegment Point1="850,140" Point2="800,100" Point3="800,96"/>
+
+
+
+                                </PathFigure>
+                            </PathGeometry.Figures>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+
+                <TextBlock Text="GAME" FontSize="100" Canvas.Left="538" Canvas.Top="427" Height="168" Width="319" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top"  Style="{StaticResource textstyle}">
+                    <TextBlock.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-7.821"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </TextBlock.RenderTransform></TextBlock>
+                <TextBlock Text="POKER" FontSize="120" Canvas.Left="476" Canvas.Top="188" Height="164" Width="380" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top"  Style="{StaticResource textstyle}">
+                    <TextBlock.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-9.809"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </TextBlock.RenderTransform></TextBlock>
+                <TextBlock Text="A" FontSize="50" Canvas.Left="444" Canvas.Top="62" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource textstyle}"></TextBlock>
+                <TextBlock Text="A" FontSize="50" Canvas.Left="573" Canvas.Top="51" HorizontalAlignment="Center" VerticalAlignment="Top"  Style="{StaticResource textstyle}"></TextBlock>
+                <TextBlock Text="A" FontSize="50" Canvas.Left="712" Canvas.Top="37" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5"  Style="{StaticResource textstyle}">
+                    <TextBlock.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="6.794"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </TextBlock.RenderTransform></TextBlock>
+                <Line Style="{StaticResource linestyle}"
+        X1="460" Y1="410"  
+    X2="440" Y2="420"  />
+                <Line Style="{StaticResource linestyle}"
+        X1="465" Y1="450"  
+    X2="480" Y2="430"  />
+                <Line Style="{StaticResource linestyle}"
+        X1="510" Y1="460"  
+    X2="510" Y2="435"  />
+                <Line Style="{StaticResource linestyle}"
+        X1="550" Y1="450"  
+    X2="538" Y2="428"  />
+                <Line Style="{StaticResource linestyle}"
+        X1="560" Y1="405"  
+    X2="585" Y2="420"  />
+                <Line Style="{StaticResource linestyle}"
+        X1="570" Y1="380"  
+    X2="597" Y2="380"  />
+                <!--chip2-->
+                <Line Style="{StaticResource linestyle}"
+        X1="635" Y1="445"  
+    X2="615" Y2="440"  />
+                <Line Style="{StaticResource linestyle}"
+        X1="650" Y1="415"  
+    X2="620" Y2="400"  />
+                <Line Style="{StaticResource linestyle}"
+        X1="668" Y1="390"  
+    X2="645" Y2="365"  />
+                <Line Style="{StaticResource linestyle}"
+        X1="695" Y1="375"  
+    X2="690" Y2="348"  />
+                <Line Style="{StaticResource linestyle}"
+        X1="725" Y1="375"  
+    X2="730" Y2="345"  />
+                <Line Style="{StaticResource linestyle}"
+        X1="765" Y1="360"  
+    X2="750" Y2="385"  />
+                <Line Style="{StaticResource linestyle}"
+        X1="767" Y1="405"  
+    X2="795" Y2="390"  />
+                <!--Chip3-->
+                <Line Style="{StaticResource linestyle}"
+        X1="778" Y1="340"  
+    X2="795" Y2="335" />
+                <Line Style="{StaticResource linestyle}"
+        X1="799" Y1="368"  
+    X2="815" Y2="357" />
+                <Line Style="{StaticResource linestyle}"
+        X1="835" Y1="367"  
+    X2="827" Y2="387" />
+                <Line Style="{StaticResource linestyle}"
+        X1="858" Y1="369"  
+    X2="860" Y2="390" />
+                <Line Style="{StaticResource linestyle}"
+        X1="880" Y1="360"  
+    X2="895" Y2="375" />
+                <Line Style="{StaticResource linestyle}"
+        X1="900" Y1="340"  
+    X2="920" Y2="349" />
+                <Line Style="{StaticResource linestyle}"
+        X1="908" Y1="315"  
+    X2="925" Y2="318" />
+                <!--chip4-->
+                <Line Style="{StaticResource linestyle}"
+        X1="580" Y1="590"  
+    X2="570" Y2="600" />
+                <Line Style="{StaticResource linestyle}"
+        X1="593" Y1="600"  
+    X2="588" Y2="610" />
+                <Line Style="{StaticResource linestyle}"
+        X1="615" Y1="602"  
+    X2="614" Y2="617" />
+                <Line Style="{StaticResource linestyle}"
+        X1="635" Y1="600"  
+    X2="637" Y2="615" />
+                <Line Style="{StaticResource linestyle}"
+        X1="657" Y1="602"  
+    X2="650" Y2="592" />
+                <Line Style="{StaticResource linestyle}"
+        X1="672" Y1="580"  
+    X2="663" Y2="575" />
+                <!--chip5-->
+                <Line Style="{StaticResource linestyle}"
+        X1="750" Y1="550"  
+    X2="740" Y2="565" />
+                <Line Style="{StaticResource linestyle}"
+        X1="771" Y1="550"  
+    X2="769" Y2="570" />
+                <Line Style="{StaticResource linestyle}"
+        X1="795" Y1="545"  
+    X2="800" Y2="570" />
+                <Line Style="{StaticResource linestyle}"
+        X1="817" Y1="543"  
+    X2="827" Y2="562" />
+            </Canvas>
+        </Viewbox>
+    </ControlTemplate>
+
+</ResourceDictionary>
